@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+	<style type="text/css">
+	#youTyping {
+		position: fixed;
+		top: -200px;
+	}
+	</style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<div id="commandWindow" class="prompt">
+<h3>Alias >></h3>
+<span id="typed"> </span>
+</div>
+
+<input id="youTyping" type="text" />
+
 </body>
+
+<script type="text/javascript" src="index.js"></script>
 </html>
+
