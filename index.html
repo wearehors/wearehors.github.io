@@ -5,12 +5,30 @@
   src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
   crossorigin="anonymous"></script>
+	
 	<style type="text/css">
+	/*Animation Prefs*/
+	@-webkit-keyframes pulse {
+	      0% {background-color: rgba(87,186,225,1);}
+	     25% {background-color: rgba(192,210,64,1);}
+	     50% {background-color: rgba(228,65,70,1);}
+	     75% {background-color: rgba(145,41,141,1);}
+	     100% {background-color: rgba(87,186,225,1);}
+	}
+
+	/*Body Styles*/
+	body {
+	    -webkit-animation: pulse 40s infinite; /*alternate;*/
+	    background-color: rgba(87,186,225,1);
+	}
+
 	#youTyping {
 		position: fixed;
 		top: -200px;
 	}
+	
 	</style>
+
 </head>
 <body>
 
