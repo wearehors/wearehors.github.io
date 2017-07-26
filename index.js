@@ -23,6 +23,8 @@ function EnterCommand() {
 		response.innerHTML = "Welcome, " + youTyping.value + ".";
 		commandWindow.appendChild(response);
 
+		$("#mainContent").fadeIn("slow");
+
 		pastIntro = true;
 	}
 
