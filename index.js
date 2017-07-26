@@ -1,17 +1,45 @@
+pastIntro = false;
+
 function MirrorType() {
 	typed.innerHTML = youTyping.value;
 	youTyping.focus();
+
+	if (!pastIntro && typed.innerHTML.length > 0) {
+		tutorial.style.display = "none";
+	}
+}
+
+function AddLineBreak() {
+	var linebreak = document.createElement("p");
+	commandWindow.appendChild(linebreak);
 }
 
 function EnterCommand() {
-	var newtyped = document.createElement("p");
+
+	if (!pastIntro) {
+		AddLineBreak();
+
+		var response = document.createElement("h3");
+		response.innerHTML = "Welcome, " + youTyping.value + ".";
+		commandWindow.appendChild(response);
+
+		pastIntro = true;
+	}
+
+	AddLineBreak();
+
+	var newtyped = document.createElement("span");
 	newtyped.classname = "command";
 	commandWindow.appendChild(newtyped);
+
+	commandWindow.appendChild(fakeCursor);
 	typed = newtyped;
 	youTyping.value = "";
 }
 
 $(document).ready(function() {
+	tutorial = document.getElementById("tutorial");
+	fakeCursor = document.getElementById("fakeCursor");
 	commandWindow = document.getElementById("commandWindow");
 	typed = document.getElementById("typed");
 	youTyping = document.getElementById("youTyping");

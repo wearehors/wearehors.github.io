@@ -18,6 +18,14 @@
 	     100% {background-color: rgba(87,186,225,1);}
 	}
 
+	@-webkit-keyframes blink {
+      0% {background-color: rgba(87,186,225,1);}
+      49% {background-color: rgba(192,210,64,1);}
+      50% {background-color: rgba(228,65,70,1);}
+      99% {background-color: rgba(145,41,141,1);}
+      100% {background-color: rgba(87,186,225,1);}
+	}
+
 	/*Body Styles*/
 	body {
 	    -webkit-animation: pulse 40s infinite; /*alternate;*/
@@ -25,9 +33,25 @@
 	    font-family: 'Droid Sans Mono', monospace;
 	}
 
+	#tutorial {
+		font-style: italic;
+		color: #ccc;
+	}
+
 	#youTyping {
 		position: fixed;
 		top: -200px;
+	}
+
+	.command {
+		display: inline-block;
+	}
+
+	#fakeCursor {
+		-webkit-animation: blink 2s infinite; 
+		background-color: rgba(0,0,0,0);
+		display: inline-block;
+		margin: 0 5px;
 	}
 	
 	</style>
@@ -36,8 +60,10 @@
 <body>
 
 <div id="commandWindow" class="prompt">
-<h3>Alias >></h3>
-<span id="typed"> </span>
+<h3>new site, who dis?</h3>
+<span id="tutorial">type to type</span>
+<span id="typed" class="command"></span>
+<span id="fakeCursor">&nbsp;</span>
 </div>
 
 <input id="youTyping" type="text" />
