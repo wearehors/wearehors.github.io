@@ -44,11 +44,17 @@
 
 	/*Body Styles*/
 	body {
+		margin: 0;
+		padding: 0;
 	    -webkit-animation: pulse 40s infinite; /*alternate;*/
 	    -moz-animation: pulse 40s infinite; /*alternate;*/
 	    background-color: rgba(87,186,225,1);
 	    font-family: 'Droid Sans Mono', monospace;
+	    background-image: url('img/white-fur.jpg');
+	    background-blend-mode: hard-light;
+	    <!--[if IE]>
 	    background-image: url('img/white-fur-trans.png');
+	    <![endif]-->
 	}
 
 	div {
@@ -244,6 +250,11 @@
 		color: greenyellow;
     	text-decoration: none;
 	}
+
+	#crew {
+		max-width: 100%;
+		margin: 0 0 2em 0;
+	}
 	
 	</style>
 
@@ -320,6 +331,10 @@
 	<div id="trailer" class="icon">
 		shortened version
 	</div> -->
+
+
+	<img id="crew" src="img/horscrewcover.jpg" />
+
 </div>
 
 <div id="commandWindow" class="prompt">
