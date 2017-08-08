@@ -48,6 +48,7 @@
 	    -moz-animation: pulse 40s infinite; /*alternate;*/
 	    background-color: rgba(87,186,225,1);
 	    font-family: 'Droid Sans Mono', monospace;
+	    background-image: url('img/white-fur-trans.png');
 	}
 
 	div {
@@ -75,18 +76,22 @@
 
 	.icon {
 		display: inline-block;
-		max-width: 25%;
+		max-width: 35%;
 		border-radius: 3px;
     	border: 1px solid transparent;
     	vertical-align: middle;
 	}
 
-	.icon:hover {
+	.iconWindow:hover, .iconWindow:active {
 		border-radius: 3px;
     	border: 1px solid pink;
    		box-shadow: 10px 5px 13px magenta;
    		-moz-box-shadow: 10px 5px 13px magenta;
    		-webkit-box-shadow: 10px 5px 13px magenta;
+	}
+
+	.iconFlat:hover, .iconFlat:active {
+		background-color: #dae679;
 	}
 
 	.icon img {
@@ -123,6 +128,9 @@
     	display: inline-block;
     	margin: .2em .4em;
     	text-decoration: none;
+    	box-shadow: 7px 4px 5px;
+    	-webkit-box-shadow: 7px 4px 5px;
+    	-moz-box-shadow: 7px 4px 5px;
 	}
 
 	.glossaryTerm:hover {
@@ -130,23 +138,30 @@
 	}
 
 	#commandWindow {
+		color: #fff;
 		position: absolute;
 		top: 0px;
 		left: 0px;
-		padding: 10px;
-		background-color: rgba(255,255,255,.1);
+		padding: .8em 1em;
+		background-color: rgba(0,0,0,.2);
 		    margin: 20px;
     	border-radius: 3px;
     	border: 1px solid yellow;
+    	border-top-width: 5px;
+    	box-sizing: border-box;
    		box-shadow: 10px 5px 13px cyan;
    		-moz-box-shadow: 10px 5px 13px cyan;
    		-webkit-box-shadow: 10px 5px 13px cyan;
    		max-width: 30%; /* decide if you would want this for mobile? */
 	}
 
+	#commandWindow h3 {
+		margin: 0 0 .5em 0;
+	}
+
 	#tutorial {
 		font-style: italic;
-		color: #555;
+		color: lavender;
 		font-weight: 100;
 	}
 
@@ -198,6 +213,37 @@
 		opacity: .3;
 		filter: alpha(opacity=30); /* For IE8 and earlier */
 	}
+
+	#tourdates {
+		position: relative;
+	}
+
+	#tourdatescontent {
+	    position: absolute;
+	    background: url(img/pixel-bg-pink.png);
+	    color: cornsilk;
+	    padding: 1em;
+	    text-align: left;
+	    top: -20px;
+	    width: 200%;
+	    background-size: 50px;
+	    border-radius: 3px;
+	    -webkit-border-radius: 3px;
+	    -moz-border-radius: 3px;
+    	border: 2px solid;
+        box-shadow: 2px 2px 0px #e6e4a1;
+        -webkit-box-shadow: 2px 2px 0px #e6e4a1;
+        -moz-box-shadow: 2px 2px 0px #e6e4a1;
+	}
+
+	#tourdatescontent p {
+		margin: 0 0 .5em 0;
+	}
+
+	#tourdatescontent a {
+		color: greenyellow;
+    	text-decoration: none;
+	}
 	
 	</style>
 
@@ -220,33 +266,41 @@
 	</div>
 
 	<div id="twitter" class="section">
-		<a class="icon" rel="nofollow" href="http://www.twitter.com/wearehors">
+		<a class="icon iconWindow" rel="nofollow" target='_blank' href="http://www.twitter.com/wearehors">
 			<img src="img/hors-twitter.png" />
 		</a>
 	</div>
 
 	<div id="instagram" class="section">
-		<a class="icon" rel="nofollow" href="http://www.instagram.com/wearehors">
+		<a class="icon iconWindow" rel="nofollow" target='_blank' href="http://www.instagram.com/wearehors">
 			<img src="img/hors-ig.png" />
 		</a>
 	</div>
 
 	<div id="tourdates" class="section">
-		<img src="img/tour-icon.png" />
-		<div class="subcontent" style="display:none;">
-			<b>blahblah</b> @ blahblah <br />
-			<b>blahblah</b> @ blahblah
+		<a id="reveal_tour" class="icon iconFlat">
+			<img src="img/tour-icon.png" />
+		</a>
+		<div id="tourdatescontent" class="subcontent" style="display:none;">
+			<p>t0ur d4tes</p>
+			<p>
+				May 13 - Jun 03&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<a href="https://artandcakela.com/2017/05/30/animating-the-archives-the-womans-building/" target='_blank' rel="nofollow">Ave 50 Studios</a> 
+				<br />  
+				Jun 13 - Jun 15&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<a href="https://arstechnica.com/gaming/2017/06/e3-2017s-brightest-indie-games-cataloged-in-words-and-video/" target='_blank' rel="nofollow">E3 Indiecade Showcase</a>
+				<br />
+				Jun 27&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/p/BV0bM_inNsK" rel="nofollow" target='_blank'>Alex Theatre</a>
+			</p>
+			<p>mor3 c0ming s00n..</p>
+
 		</div>
 	</div>
 
 	<div id="contact" class="section">
 		<!--When you click it it can show a captcha type image that says our email in it-->
-		<a id="reveal_email" class="icon">
-			<img src="img/hors-email.png" />
+		<a id="reveal_email" class="icon iconFlat">
+			<img id="emailIcon" src="img/hors-email.png" />
+			<img id="secretEmail" src="img/hors-email-reveal.png" style="display:none;" />
 		</a>
-		<div class="subcontent" style="display:none;">
-			<img id="secretEmail" src="img/email-captcha.png" />
-		</div>
 	</div>
 
 	<div id="desc" class="section text">

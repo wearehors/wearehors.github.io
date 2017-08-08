@@ -31,6 +31,7 @@ colors = ["rgba(87,186,225,1)",
 			"rgba(87,186,225,1)"];
 
 pastIntro = false;
+showingDialog = false;
 
 function MirrorType() {
 	typed.innerHTML = youTyping.value;
@@ -78,9 +79,42 @@ function fillInGlossary() {
 	
 	glossary.forEach(function(term) {
 		termColor = colors[Math.floor(Math.random()*colors.length)];
-    	var markup = "<a class='glossaryTerm' rel='nofollow' style='color: " + termColor + "' href='https://duckduckgo.com/?q=" + term + "'>" + term + "</a>";
+    	var markup = "<a class='glossaryTerm' rel='nofollow' target='_blank' style='color: " + termColor + "' href='https://duckduckgo.com/?q=" + term + "'>" + term + "</a>";
     	glossaryDom.innerHTML = glossaryDom.innerHTML + markup;
 	});
+}
+
+function showSubcontent($this) {
+	$this.next().fadeIn();
+	showingDialog = true;
+}
+
+function hideDialogs() {
+	if (showingDialog) {
+		$(".subcontent").fadeOut();
+		showingDialog = false;
+	}
+
+	if (showingEmail) {
+		hideEmail();
+	}
+}
+
+showingEmail = false;
+function showEmail() {
+	if (!showingEmail) {
+		$("#emailIcon").hide();
+		$("#secretEmail").show();
+		showingEmail = true;
+	} else {
+		hideEmail();
+	}
+}
+
+function hideEmail() {
+	$("#emailIcon").show();
+	$("#secretEmail").hide();
+	showingEmail = false;
 }
 
 $(document).ready(function() {
@@ -94,7 +128,25 @@ $(document).ready(function() {
 	MirrorType();
 
 	$(document).click(function() {
+		//alert("me");
     	MirrorType();
+    	hideDialogs();
+	});
+
+	$("#reveal_tour").click(function(e) {
+		e.stopPropagation(); 
+		showSubcontent($(this)); 
+	});
+
+	$("#reveal_email").click(function(e) { 
+		e.stopPropagation();
+		showEmail($(this)); 
+	});
+
+	$(".subcontent").click(function(e) {
+    	e.stopPropagation(); // This is the preferred method.
+    	return false;        // This should not be used unless you do not want
+                         // any click events registering inside the div
 	});
 
 	$("#youTyping").keyup(function(event){
