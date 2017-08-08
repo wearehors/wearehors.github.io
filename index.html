@@ -113,6 +113,22 @@
 	    text-align: left;
 	}
 
+	#glossary {
+		display: block;
+    	width: 45%;
+    	text-align: right;
+	}
+
+	.glossaryTerm {
+    	display: inline-block;
+    	margin: .2em .4em;
+    	text-decoration: none;
+	}
+
+	.glossaryTerm:hover {
+		background: rgba(255,255,255,.5);
+	}
+
 	#commandWindow {
 		position: absolute;
 		top: 0px;
@@ -204,13 +220,13 @@
 	</div>
 
 	<div id="twitter" class="section">
-		<a class="icon" href="http://www.twitter.com/wearehors">
+		<a class="icon" rel="nofollow" href="http://www.twitter.com/wearehors">
 			<img src="img/hors-twitter.png" />
 		</a>
 	</div>
 
 	<div id="instagram" class="section">
-		<a class="icon" href="http://www.instagram.com/wearehors">
+		<a class="icon" rel="nofollow" href="http://www.instagram.com/wearehors">
 			<img src="img/hors-ig.png" />
 		</a>
 	</div>
@@ -223,10 +239,6 @@
 		</div>
 	</div>
 
-	<div id="desc" class="section text">
-		​H4ckers 0f R3sistance is an imm3rsive mUltim3dia heisT.
-	</div>
-
 	<div id="contact" class="section">
 		<!--When you click it it can show a captcha type image that says our email in it-->
 		<a id="reveal_email" class="icon">
@@ -237,17 +249,22 @@
 		</div>
 	</div>
 
+	<div id="desc" class="section text">
+		​H4ckers 0f R3sistance is an imm3rsive mUltim3dia heisT.
+	</div>
+
+
+
 	<div id="glossary" class="section">
-		<a href="">buzzword1</a>
-		<a href="">buzzword2</a>
+		<!-- FILL IN WITH JS diff colors -->
 	</div>
 
 	<!-- <div id="manifesto" class="icon">
-		????? easter egg? we could make an alert pop up if you click it
+		hidden
 	</div>
 
 	<div id="trailer" class="icon">
-		????? easter egg? we could make an alert pop up if you click it
+		shortened version
 	</div> -->
 </div>
 
