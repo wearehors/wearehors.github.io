@@ -57,6 +57,7 @@ function EnterCommand() {
 		commandWindow.appendChild(response);
 
 		$("#mainContent").fadeIn("slow");
+		$("")
 		$("#logo").addClass("accessed");
 		fillInGlossary();
 
@@ -118,6 +119,7 @@ function hideEmail() {
 }
 
 $(document).ready(function() {
+	$("body").css("min-height", $(document).height());
 	tutorial = document.getElementById("tutorial");
 	fakeCursor = document.getElementById("fakeCursor");
 	commandWindow = document.getElementById("commandWindow");
