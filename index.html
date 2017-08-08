@@ -50,30 +50,67 @@
 	    font-family: 'Droid Sans Mono', monospace;
 	}
 
-	#backdrop {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: auto;
-		text-align: center;
-	}
-
-	#logo {
-		margin: 20% auto;
-		max-height: 50%;
+	div {
+		box-sizing: border-box;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
 	}
 
 	#mainContent {
 		display: none;
 		width: 80%;
-		max-width: 900px;
+		max-width: 700px;
 		margin: 0 auto;
 		text-align: center;
 	}
 
-	.icon img {
+	.section {
+		display: inline;
+		margin: 1em 0;
+	}
+
+	.section.text {
+		display: inline-block;
+	}
+
+	.icon {
+		display: inline-block;
 		max-width: 25%;
+		border-radius: 3px;
+    	border: 1px solid transparent;
+    	vertical-align: middle;
+	}
+
+	.icon:hover {
+		border-radius: 3px;
+    	border: 1px solid pink;
+   		box-shadow: 10px 5px 13px magenta;
+   		-moz-box-shadow: 10px 5px 13px magenta;
+   		-webkit-box-shadow: 10px 5px 13px magenta;
+	}
+
+	.icon img {
+		max-width: 100%;
+	}
+
+	#about {
+		color: lime;
+	    background: rgba(0,0,0,.5);
+	    padding: .3em 1em .6em 1em;
+	    border-radius: 2px;
+	    border: solid #ccc;
+	    border-width: 2px 2px 4px 2px;
+	}
+
+	#desc {
+		color: magenta;
+	    background-color: rgba(0,255,255,.9);
+	    padding: .3em 1em .6em 1em;
+	    border-radius: 2px;
+	    border: solid lime;
+	    border-width: 15px 2px 1px 1px;
+	    max-width: 40%;
+	    text-align: left;
 	}
 
 	#commandWindow {
@@ -86,6 +123,8 @@
     	border-radius: 3px;
     	border: 1px solid yellow;
    		box-shadow: 10px 5px 13px cyan;
+   		-moz-box-shadow: 10px 5px 13px cyan;
+   		-webkit-box-shadow: 10px 5px 13px cyan;
    		max-width: 30%; /* decide if you would want this for mobile? */
 	}
 
@@ -111,6 +150,38 @@
 		display: inline-block;
 		margin: 0 5px;
 	}
+
+
+	#backdrop {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%; /*reset via javascript to be full window height? */
+		text-align: center;  /* align the inline(-block) elements horizontally */
+    	font: 0/0 a;         /* remove the gap between inline(-block) elements */
+    	z-index: -1;
+	}
+
+	#backdrop:before {    /* create a full-height inline block pseudo=element */
+	    content: ' ';
+	    display: inline-block;
+	    vertical-align: middle;  /* vertical alignment of the inline element */
+	    height: 100%;
+	}
+
+	#logo {
+		/*margin: 20% auto;
+		max-height: 50%;*/
+	    display: inline-block;
+	    vertical-align: middle;  /* vertical alignment of the inline element */
+	    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+	}
+
+	#logo.accessed {
+		opacity: .3;
+		filter: alpha(opacity=30); /* For IE8 and earlier */
+	}
 	
 	</style>
 
@@ -118,44 +189,55 @@
 <body>
 
 <div id="backdrop">
-	<img id="logo" src="mylogo.png" />
+	<img id="logo" src="img/hors-round.png" />
 </div>
 
 <div id="mainContent"> <!-- We should still give custom styling to each of these to figure out look (if there is text), size and position -->
 						<!-- Also can add pop up class in the future for the info that will pop up or maybe show within the same box if you hit the icon -->
-	<div id="twitter" class="icon">
-		<a href="http://www.twitter.com/wearehors">
-			<img src="twitter-icon.png" />
-		</a>
+	
+	<div class="section">
+		<img id="header" src="img/hors-banner.png" />
 	</div>
 
-	<div id="instagram" class="icon">
-		<a href="http://www.instagram.com/wearehors">
-			<img src="ig.png" />
-		</a>
-	</div>
-
-	<div id="about" class="icon">
+	<div id="about" class="section text">
 		You've found a trace of the Hackers of Resistance.
 	</div>
 
-	<div id="tourdates" class="icon">
-		<img src="touricon.jpg" />
+	<div id="twitter" class="section">
+		<a class="icon" href="http://www.twitter.com/wearehors">
+			<img src="img/hors-twitter.png" />
+		</a>
+	</div>
+
+	<div id="instagram" class="section">
+		<a class="icon" href="http://www.instagram.com/wearehors">
+			<img src="img/hors-ig.png" />
+		</a>
+	</div>
+
+	<div id="tourdates" class="section">
+		<img src="img/tour-icon.png" />
 		<div class="subcontent" style="display:none;">
 			<b>blahblah</b> @ blahblah <br />
 			<b>blahblah</b> @ blahblah
 		</div>
 	</div>
 
-	<div id="contact" class="icon">
+	<div id="desc" class="section text">
+		​H4ckers 0f R3sistance is an imm3rsive mUltim3dia heisT.
+	</div>
+
+	<div id="contact" class="section">
 		<!--When you click it it can show a captcha type image that says our email in it-->
-		<img src="email-icon.png" />
+		<a id="reveal_email" class="icon">
+			<img src="img/hors-email.png" />
+		</a>
 		<div class="subcontent" style="display:none;">
-			<img id="secretEmail" src="emailimage.png" />
+			<img id="secretEmail" src="img/email-captcha.png" />
 		</div>
 	</div>
 
-	<div id="glossary" class="icon">
+	<div id="glossary" class="section">
 		<a href="">buzzword1</a>
 		<a href="">buzzword2</a>
 	</div>
@@ -171,7 +253,7 @@
 
 <div id="commandWindow" class="prompt">
 	<h3>new site, who dis?</h3>
-	<span id="tutorial">type to type</span>
+	<span id="tutorial">>> enter your alias..</span>
 	<span id="typed" class="command"></span>
 	<span id="fakeCursor">&nbsp;</span>
 </div>

@@ -24,6 +24,7 @@ function EnterCommand() {
 		commandWindow.appendChild(response);
 
 		$("#mainContent").fadeIn("slow");
+		$("#logo").addClass("accessed");
 
 		pastIntro = true;
 	}
