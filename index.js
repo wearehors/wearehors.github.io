@@ -36,8 +36,9 @@ showingDialog = false;
 isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
 
 function MirrorType(entry) {
-	if (!entry && !isMobile)
+	if (!isMobile) {
 		entry = youTyping.value;
+	}
 
 	typed.innerHTML = entry;
 	youTyping.focus();
@@ -105,9 +106,7 @@ function showSubcontent($this) {
 }
 
 function hideDialogs() {
-	alert("thanks for peeping");
 	if (showingDialog) {
-		alert("come thru");
 		$(".subcontent").fadeOut();
 		showingDialog = false;
 	}
