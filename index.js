@@ -67,6 +67,14 @@ function LogIn(name) {
 
 	pastIntro = true;
 
+	$("#mainContent").click(function() {
+		ResetPage();
+	});
+
+	$("body").click(function() {
+		ResetPage();
+	});
+
 }
 
 function NewCommand() {
@@ -159,6 +167,16 @@ function desktopEvents() {
 	});
 }
 
+function ResetPage() {
+	if (pastIntro) {
+		hideDialogs();
+	}
+
+	if (!isMobile) {
+    	MirrorType();
+	}
+}
+
 $(document).ready(function() {
 	fakeCursor = document.getElementById("fakeCursor");
 	commandWindow = document.getElementById("commandWindow");
@@ -166,15 +184,6 @@ $(document).ready(function() {
 	tutorial = document.getElementById("tutorial");
 
 	$("body").css("min-height", $(document).height());
-	$("body").click(function() {
-		
-		if (pastIntro) {
-			hideDialogs();
-		}
-
-    	MirrorType();
-   
-	});
 
 	$("#reveal_tour").click(function(e) {
 		e.stopPropagation(); 
