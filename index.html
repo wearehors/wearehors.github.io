@@ -284,14 +284,41 @@
 		margin: 0 0 2em 0;
 	}
 
+	#logoMobile {
+		display: none;
+		max-width: 80%;
+	}
+
 	/* mobile styles */
 	@media handheld {
 		#commandWindow {
 			position: static;
+			width: auto;
+			max-width: 100%;
 		}
 		#mainContent {
 			width: 100%;
 			max-width: 100%;
+		}
+
+		#desc {
+			max-width: 70%;
+		}
+
+		#crew {
+			margin: 0;
+		}
+
+		#glossary {
+			width: auto;
+		}
+
+		#logo {
+			display: none;
+		}
+
+		#logoMobile {
+			display: inline-block;
 		}
 	}
 	/* iPhone-specific styles */
@@ -306,8 +333,24 @@
 			max-width: 100%;
 		}
 
+		#desc {
+			max-width: 70%;
+		}
+
+		#crew {
+			margin: 0;
+		}
+
 		#glossary {
 			width: auto;
+		}
+
+		#logo {
+			display: none;
+		}
+
+		#logoMobile {
+			display: inline-block;
 		}
 	}
 	
@@ -400,6 +443,8 @@
 
 
 	<img id="crew" src="img/horscrewcover.jpg" />
+
+	<img id="logoMobile" src="img/hors-round.png" />
 
 </div>
 
