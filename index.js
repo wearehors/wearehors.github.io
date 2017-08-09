@@ -169,7 +169,6 @@ function ResetPage() {
 	if (pastIntro && (showingEmail || showingDialog)) {
 		hideDialogs();
 	} else if (!isMobile) {
-		console.log("mirror");
     	MirrorType();
 	}
 }
