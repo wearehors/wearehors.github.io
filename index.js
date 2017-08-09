@@ -129,10 +129,15 @@ $(document).ready(function() {
 	youTyping.onpropertychange = youTyping.oninput;
 	MirrorType();
 
-	$(document).click(function() {
+	$("body").click(function() {
 		//alert("me");
+		console.log("?");
+		
+		if (pastIntro)
+			hideDialogs();
+
     	MirrorType();
-    	hideDialogs();
+   
 	});
 
 	$("#reveal_tour").click(function(e) {
