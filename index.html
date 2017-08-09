@@ -279,9 +279,13 @@
 
 	/* mobile styles */
 	@media handheld {
-		/*#commandWindow {
-			display: none;
-		}*/
+		#commandWindow {
+			position: static;
+		}
+		#mainContent {
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 	/* iPhone-specific styles */
 	@media only screen and (max-device-width: 480px) {
