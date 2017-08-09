@@ -141,7 +141,7 @@
 
 	#commandWindow {
 		color: #fff;
-		position: absolute;
+		position: fixed;
 		top: 0px;
 		left: 0px;
 		padding: .8em 1em;
@@ -219,8 +219,12 @@
 	    background-color: rgba(87,186,225,1);
     	background-image: url('img/white-fur.jpg');
 	    background-blend-mode: hard-light;
+	    opacity: .8;
+	    filter: alpha(opacity=80); /* For IE8 and earlier */
 	    <!--[if IE]>
 	    background-image: url('img/white-fur-trans.png');
+	    opacity: 1;
+	    filter: alpha(opacity=100); /* For IE8 and earlier */
 	    <![endif]-->
 	}
 
