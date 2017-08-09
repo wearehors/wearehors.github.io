@@ -156,6 +156,8 @@ $(document).ready(function() {
                          // any click events registering inside the div
 	});
 
+	$("#login").submit(function(){ return false; });
+
 	$("#youTyping").keyup(function(event){
     	if(event.keyCode == 13){
         	EnterCommand();
