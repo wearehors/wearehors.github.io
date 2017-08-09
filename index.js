@@ -105,7 +105,9 @@ function showSubcontent($this) {
 }
 
 function hideDialogs() {
+	alert("thanks for peeping");
 	if (showingDialog) {
+		alert("come thru");
 		$(".subcontent").fadeOut();
 		showingDialog = false;
 	}
