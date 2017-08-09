@@ -69,6 +69,7 @@
 		max-width: 700px;
 		margin: 0 auto;
 		text-align: center;
+		z-index: 2;
 	}
 
 	.section {
@@ -174,6 +175,23 @@
 	#youTyping {
 		position: fixed;
 		top: -200px;
+	}
+
+	#youTyping {    
+		-webkit-appearance: none!important;
+	    -moz-appearance: none!important;
+	    appearance: none!important;
+	    box-sizing: border-box!important;
+	    resize: none;
+	    width: 100%;
+	    border: none;
+	    background: transparent;
+	    color: transparent;
+	    height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    z-index: 0;
 	}
 
 	.command {
@@ -342,9 +360,11 @@
 	<span id="tutorial">>> enter your alias..</span>
 	<span id="typed" class="command"></span>
 	<span id="fakeCursor">&nbsp;</span>
-</div>
 
-<input id="youTyping" type="text" />
+	<form>
+		<input id="youTyping" type="text" />
+	</form>
+</div>
 
 </body>
 
