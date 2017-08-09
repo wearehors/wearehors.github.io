@@ -33,8 +33,13 @@ colors = ["rgba(87,186,225,1)",
 pastIntro = false;
 showingDialog = false;
 
-function MirrorType() {
-	typed.innerHTML = youTyping.value;
+isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+
+function MirrorType(entry) {
+	if (!entry && !isMobile)
+		entry = youTyping.value;
+
+	typed.innerHTML = entry;
 	youTyping.focus();
 
 	if (!pastIntro && typed.innerHTML.length > 0) {
@@ -47,23 +52,23 @@ function AddLineBreak() {
 	commandWindow.appendChild(linebreak);
 }
 
-function EnterCommand() {
+function LogIn(name) {
+	AddLineBreak();
 
-	if (!pastIntro) {
-		AddLineBreak();
+	var response = document.createElement("h3");
+	response.innerHTML = "Welcome, " + name + ".";
+	commandWindow.appendChild(response);
+	NewCommand();
 
-		var response = document.createElement("h3");
-		response.innerHTML = "Welcome, " + youTyping.value + ".";
-		commandWindow.appendChild(response);
+	$("#mainContent").fadeIn("slow");
+	$("#logo").addClass("accessed");
+	fillInGlossary();
 
-		$("#mainContent").fadeIn("slow");
-		$("")
-		$("#logo").addClass("accessed");
-		fillInGlossary();
+	pastIntro = true;
 
-		pastIntro = true;
-	}
+}
 
+function NewCommand() {
 	AddLineBreak();
 
 	var newtyped = document.createElement("span");
@@ -73,6 +78,15 @@ function EnterCommand() {
 	commandWindow.appendChild(fakeCursor);
 	typed = newtyped;
 	youTyping.value = "";
+}
+
+function EnterCommand() {
+
+	if (!pastIntro) {
+		LogIn(youTyping.value);
+	} else {
+		NewCommand();
+	}
 }
 
 function fillInGlossary() {
@@ -118,23 +132,44 @@ function hideEmail() {
 	showingEmail = false;
 }
 
-$(document).ready(function() {
-	$("body").css("min-height", $(document).height());
-	tutorial = document.getElementById("tutorial");
-	fakeCursor = document.getElementById("fakeCursor");
-	commandWindow = document.getElementById("commandWindow");
-	typed = document.getElementById("typed");
+function mobileEvents() {
+	$("#login").hide();
+
+	var person = prompt("New site, who dis?", "");
+
+	if (person != null) {
+		MirrorType(person);
+    	LogIn(person);
+	}
+}
+
+function desktopEvents() {
 	youTyping = document.getElementById("youTyping");
 	youTyping.oninput = MirrorType;
 	youTyping.onpropertychange = youTyping.oninput;
 	MirrorType();
 
+	$("#login").submit(function(){ return false; });
+
+	$("#youTyping").keyup(function(event){
+    	if(event.keyCode == 13){
+        	EnterCommand();
+    	}
+	});
+}
+
+$(document).ready(function() {
+	fakeCursor = document.getElementById("fakeCursor");
+	commandWindow = document.getElementById("commandWindow");
+	typed = document.getElementById("typed");
+	tutorial = document.getElementById("tutorial");
+
+	$("body").css("min-height", $(document).height());
 	$("body").click(function() {
-		//alert("me");
-		console.log("?");
 		
-		if (pastIntro)
+		if (pastIntro) {
 			hideDialogs();
+		}
 
     	MirrorType();
    
@@ -156,11 +191,11 @@ $(document).ready(function() {
                          // any click events registering inside the div
 	});
 
-	$("#login").submit(function(){ return false; });
+	if (isMobile) {
+		mobileEvents();
+	} else {
+		desktopEvents();
+	}
 
-	$("#youTyping").keyup(function(event){
-    	if(event.keyCode == 13){
-        	EnterCommand();
-    	}
-	});
+	
 });
