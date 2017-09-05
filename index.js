@@ -180,11 +180,17 @@ $(document).ready(function() {
 	tutorial = document.getElementById("tutorial");
 
 	$("body").css("min-height", $(document).height());
+	
 	$("body").click(function() {
 		ResetPage();
 	});
 
 	$("#reveal_tour").click(function(e) {
+		e.stopPropagation(); 
+		showSubcontent($(this)); 
+	});
+
+	$("#reveal_manifesto").click(function(e) {
 		e.stopPropagation(); 
 		showSubcontent($(this)); 
 	});
@@ -196,7 +202,7 @@ $(document).ready(function() {
 
 	$(".subcontent").click(function(e) {
     	e.stopPropagation(); // This is the preferred method.
-    	return false;        // This should not be used unless you do not want
+    	//return false;        // This should not be used unless you do not want
                          // any click events registering inside the div
 	});
 

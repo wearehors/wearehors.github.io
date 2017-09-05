@@ -1,0 +1,36 @@
+.documentation {
+		color: mediumslateblue;
+		font-family: monospace;
+	}
+
+	#directory {
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	a {
+    	color: orangered;
+	}
+
+	.link {
+	    width: 50%;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+
+	.details {
+		max-width: 25%;
+	}
+
+	.installThumb {
+		width: 100%;
+	}
+
+	th, td {
+    	padding: 3px 5px;
+	}
+
+	th {
+    	border-bottom: 1px dashed fuchsia;
+	}

@@ -121,9 +121,17 @@
 	}
 
 	#glossary {
+		margin-top: 5em;
 		display: block;
     	width: 45%;
     	text-align: right;
+	}
+
+	#glossary h2 {
+		text-align: left;
+		margin-bottom: 0em;
+		color: #fff;
+        text-shadow: 0px 0px 8px darkcyan;
 	}
 
 	.glossaryTerm {
@@ -259,11 +267,11 @@
 	#tourdatescontent {
 	    position: absolute;
 	    background: url(img/pixel-bg-pink.png);
-	    color: cornsilk;
+	    color: yellow;
 	    padding: 1em;
 	    text-align: left;
 	    top: -20px;
-	    width: 200%;
+	    width: 250%;
 	    background-size: 50px;
 	    border-radius: 3px;
 	    -webkit-border-radius: 3px;
@@ -272,20 +280,37 @@
         box-shadow: 2px 2px 0px #e6e4a1;
         -webkit-box-shadow: 2px 2px 0px #e6e4a1;
         -moz-box-shadow: 2px 2px 0px #e6e4a1;
+        font-size: 1.2em;
+    	text-shadow: 2px 2px 6px yellowgreen;
 	}
 
 	#tourdatescontent p {
 		margin: 0 0 .5em 0;
 	}
 
-	#tourdatescontent a {
-		color: greenyellow;
-    	text-decoration: none;
+	#tourdatescontent a span{
+		color: teal;
+    	font-weight: bold;
+    	cursor: pointer;
+    	text-decoration: underline;
+	}
+
+	#tourdatescontent .date {
+		display:inline-block;
+		width: 35%;
+	}
+
+	#manifestocontent {
+		font-size: .8em;
+    	text-align: left;
+    	background: yellow;
+    	max-width: 640px;
 	}
 
 	#crew {
 		max-width: 100%;
-		margin: 0 0 2em 0;
+		margin: 3em 0 0 0;
+    	display: block;
 	}
 
 	#logoMobile {
@@ -408,14 +433,45 @@
 		<div id="tourdatescontent" class="subcontent" style="display:none;">
 			<p>t0ur d4tes</p>
 			<p>
-				May 13 - Jun 03&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<a href="https://artandcakela.com/2017/05/30/animating-the-archives-the-womans-building/" target='_blank' rel="nofollow">Ave 50 Studios</a> 
-				<br />  
-				Jun 13 - Jun 15&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<a href="https://arstechnica.com/gaming/2017/06/e3-2017s-brightest-indie-games-cataloged-in-words-and-video/" target='_blank' rel="nofollow">E3 Indiecade Showcase</a>
-				<br />
-				Jun 27&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/p/BV0bM_inNsK" rel="nofollow" target='_blank'>Alex Theatre</a>
-			</p>
-			<p>mor3 c0ming s00n..</p>
+				<span class="date">Nov 17 - Dec 15</span><span class="location">TBA, Oakland, CA</span>
 
+				<br />
+				<span class="date">Oct 6 - Oct 8</span><span class="location">TBA, Little Tokyo, CA</span>
+
+				<br />
+				<a target="popup" 
+  onclick="window.open('horsalex.html','popup','width=600,height=600'); return false;">
+  				<span class="date">Jun 27 Only</span></span><span class="location">Alex Theatre</span>
+  				</a>
+
+				<br />  
+				<a target="popup" 
+  onclick="window.open('horse3.html','popup','width=600,height=600'); return false;">
+  				<span class="date">Jun 13 - Jun 15</span><span class="location">E3 Indiecade Showcase</span>
+  				</a>
+				
+				<br />
+				<a target="popup" 
+  onclick="window.open('horswomanbuilding.html','popup','width=600,height=600'); return false;">
+  				<span class="date">May 13 - Jun 03</span><span class="location">Ave 50 Studios</span>
+  				</a> 
+			</p>
+
+		</div>
+	</div>
+
+
+	<div id="manifesto" class="section">
+		<a id="reveal_manifesto" class="icon iconFlat">
+			<img src="img/hors-tv.png" />
+		</a>
+		<div id="manifestocontent" class="subcontent" style="display:none;">
+			<iframe src="https://player.vimeo.com/video/232424555" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<p>TEASERTEASERTEASER every day, you willingly exchange personal data for custom convenience
+lurking behind these transactions, the corporatocracy maps out your every move in the name of security
+don't worry, we're on your side
+the hors will help you reclaim your life and reprogram the 1s and 0s that build our world
+to hack is to create what we do is self defense, self determin-TEASERTEASERTEASER</p>
 		</div>
 	</div>
 
@@ -431,22 +487,13 @@
 		​H4ckers 0f R3sistance is an imm3rsive mUltim3dia heisT.
 	</div>
 
-
-
 	<div id="glossary" class="section">
+		<h2>search terms</h2>
 		<!-- FILL IN WITH JS diff colors -->
 	</div>
 
-	<!-- <div id="manifesto" class="icon">
-		hidden
-	</div>
 
-	<div id="trailer" class="icon">
-		shortened version
-	</div> -->
-
-
-	<img id="crew" src="img/horscrewcover.jpg" />
+	<img id="crew" src="img/MirrorFace.gif" />
 
 	<img id="logoMobile" src="img/hors-round.png" />
 
